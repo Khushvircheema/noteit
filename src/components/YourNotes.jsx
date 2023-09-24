@@ -13,17 +13,6 @@ function YourNotes({ baseURL }) {
   const [note, setNote] = useState([]);
   const link = `${baseURL}notes/` + id;
 
-  // Run when Component Mounts first time
-  useEffect(() => {
-    async function fetchdata() {
-      await axios.get(link).then((res) => {
-        setNote(res.data);
-        console.log(res.data);
-      });
-    }
-    fetchdata();
-  }, [link]);
-
   // run evertime a new note is added
   useEffect(() => {
     if (isNewNoteAdded && isNoteDeleted) {
@@ -39,6 +28,16 @@ function YourNotes({ baseURL }) {
     }
   }, [link, isNewNoteAdded, isNoteDeleted]);
 
+  // Run when Component Mounts first time
+  useEffect(() => {
+    async function fetchdata() {
+      await axios.get(link).then((res) => {
+        setNote(res.data);
+        console.log(res.data);
+      });
+    }
+    fetchdata();
+  }, [link]);
   return (
     <div>
       <CreateArea setIsNewNoteAdded={setIsNewNoteAdded} baseURL={baseURL} />
