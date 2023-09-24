@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "../style.css";
 
+const baseURL = "https://noteit-api-xy18.onrender.com/";
 function App() {
   const [location, setLocation] = useState("");
   return (
@@ -17,15 +18,18 @@ function App() {
         <Header location={location} setLocation={setLocation} />
 
         <Routes>
-          <Route path="/" element={<Login setLocation={setLocation} />}></Route>
+          <Route
+            path="/"
+            element={<Login setLocation={setLocation} baseURL={baseURL} />}
+          ></Route>
           <Route
             exact
             path="/register"
-            element={<Register setLocation={setLocation} />}
+            element={<Register setLocation={setLocation} baseURL={baseURL} />}
           ></Route>
           <Route
             path="/notes/:id"
-            element={<YourNotes setLocation={setLocation} />}
+            element={<YourNotes setLocation={setLocation} baseURL={baseURL} />}
           ></Route>
         </Routes>
       </BrowserRouter>

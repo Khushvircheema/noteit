@@ -4,14 +4,14 @@ import Note from "./Note";
 import CreateArea from "./CreateArea";
 import axios from "axios";
 
-function YourNotes() {
+function YourNotes({ baseURL }) {
   const { id } = useParams();
   // state to tell if new note is added
   const [isNewNoteAdded, setIsNewNoteAdded] = useState(false);
   // state to tell if item is deleted
   const [isNoteDeleted, setIsNoteDeleted] = useState(false);
   const [note, setNote] = useState([]);
-  const link = "https://noteit-api-xy18.onrender.com/notes/" + id;
+  const link = `${baseURL}notes/` + id;
 
   // Run when Component Mounts first time
   useEffect(() => {
@@ -41,7 +41,7 @@ function YourNotes() {
 
   return (
     <div>
-      <CreateArea setIsNewNoteAdded={setIsNewNoteAdded} />
+      <CreateArea setIsNewNoteAdded={setIsNewNoteAdded} baseURL={baseURL} />
       {/* Render the list of Note components */}
       {note.map((item) => {
         return (
@@ -52,6 +52,7 @@ function YourNotes() {
             title={item.title}
             content={item.content}
             setIsNoteDeleted={setIsNoteDeleted}
+            baseURL={baseURL}
           />
         );
       })}

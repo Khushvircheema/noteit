@@ -4,7 +4,7 @@ import Fab from "@mui/material/Fab";
 import Zoom from "@mui/material/Zoom";
 import { useParams } from "react-router-dom";
 
-function CreateArea({ setIsNewNoteAdded }) {
+function CreateArea({ setIsNewNoteAdded, baseURL }) {
   const { id } = useParams();
 
   // State to hold the title and content of the new note
@@ -29,14 +29,11 @@ function CreateArea({ setIsNewNoteAdded }) {
 
     try {
       // Send POST request to add the note to the database
-      const response = await fetch(
-        "https://noteit-api-xy18.onrender.com/notes/" + id,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: stringify,
-        }
-      );
+      const response = await fetch(`${baseURL}notes/` + id, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: stringify,
+      });
       const data = await response.json(); // Parse response JSON data
       console.log("Note added successfully:", data); // Handle the response data
     } catch (error) {

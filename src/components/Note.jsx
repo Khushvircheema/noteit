@@ -2,13 +2,13 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
 import { useState } from "react";
 
-function Note({ object, id, title, content, setIsNoteDeleted }) {
+function Note({ object, id, title, content, setIsNoteDeleted, baseURL }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editTitle, setEditTitle] = useState(title);
   const [editContent, setEditContent] = useState(content);
   const noteId = String(id);
   const userId = object;
-  let link = `https://noteit-api.onrender.com/notes/${userId}/${noteId}`;
+  let link = `${baseURL}notes/${userId}/${noteId}`;
 
   // Function to handle the delete button click
   async function handleClick() {
@@ -41,7 +41,7 @@ function Note({ object, id, title, content, setIsNoteDeleted }) {
     };
     try {
       const response = await axios.patch(
-        `https://noteit-api-xy18.onrender.com/${userId}/${noteId}`,
+        `${baseURL}${userId}/${noteId}`,
         updatedNoteData
       );
       console.log(response.data);

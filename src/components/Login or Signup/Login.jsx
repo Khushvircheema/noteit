@@ -24,7 +24,7 @@ const theme = createTheme({
   },
 });
 
-function Login({ setLocation }) {
+function Login({ setLocation, baseURL }) {
   const navigate = useNavigate();
 
   const [loginInput, setLoginInput] = useState({
@@ -46,7 +46,7 @@ function Login({ setLocation }) {
 
     if (!loginInput) return;
 
-    const loginLink = `https://noteit-api-xy18.onrender.com/login`;
+    const loginLink = `${baseURL}login`;
 
     await axios
       .post(loginLink, loginInput)

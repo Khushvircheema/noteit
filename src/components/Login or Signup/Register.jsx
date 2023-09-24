@@ -21,7 +21,7 @@ const theme = createTheme({
   },
 });
 
-function Register({ setLocation }) {
+function Register({ setLocation, baseURL }) {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     fname: "",
@@ -62,7 +62,7 @@ function Register({ setLocation }) {
       return;
     }
 
-    const registerLink = "https://noteit-api-xy18.onrender.com/register";
+    const registerLink = `${baseURL}register`;
 
     await axios
       .post(registerLink, inputs)
