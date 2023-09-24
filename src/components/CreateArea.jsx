@@ -29,11 +29,14 @@ function CreateArea({ setIsNewNoteAdded }) {
 
     try {
       // Send POST request to add the note to the database
-      const response = await fetch("https://note-it.onrender.com/notes/" + id, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: stringify,
-      });
+      const response = await fetch(
+        "https://noteit-api.onrender.com/notes/" + id,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: stringify,
+        }
+      );
       const data = await response.json(); // Parse response JSON data
       console.log("Note added successfully:", data); // Handle the response data
     } catch (error) {

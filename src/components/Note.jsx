@@ -8,7 +8,7 @@ function Note({ object, id, title, content, setIsNoteDeleted }) {
   const [editContent, setEditContent] = useState(content);
   const noteId = String(id);
   const userId = object;
-  let link = `https://note-it.onrender.com/notes/${userId}/${noteId}`;
+  let link = `https://noteit-api.onrender.com/notes/${userId}/${noteId}`;
 
   // Function to handle the delete button click
   async function handleClick() {
@@ -41,7 +41,7 @@ function Note({ object, id, title, content, setIsNoteDeleted }) {
     };
     try {
       const response = await axios.patch(
-        `https://note-it.onrender.com/${userId}/${noteId}`,
+        `https://noteit-api.onrender.com/${userId}/${noteId}`,
         updatedNoteData
       );
       console.log(response.data);
