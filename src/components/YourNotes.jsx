@@ -11,7 +11,7 @@ function YourNotes() {
   // state to tell if item is deleted
   const [isNoteDeleted, setIsNoteDeleted] = useState(false);
   const [note, setNote] = useState([]);
-  const link = "https://noteit-api.onrender.com/notes/" + id;
+  const link = "https://noteit-api-xy18.onrender.com/notes/" + id;
 
   // Run when Component Mounts first time
   useEffect(() => {

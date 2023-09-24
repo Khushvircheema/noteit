@@ -41,7 +41,7 @@ function Note({ object, id, title, content, setIsNoteDeleted }) {
     };
     try {
       const response = await axios.patch(
-        `https://noteit-api.onrender.com/${userId}/${noteId}`,
+        `https://noteit-api-xy18.onrender.com/${userId}/${noteId}`,
         updatedNoteData
       );
       console.log(response.data);

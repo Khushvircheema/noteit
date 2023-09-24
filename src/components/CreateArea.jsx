@@ -30,7 +30,7 @@ function CreateArea({ setIsNewNoteAdded }) {
     try {
       // Send POST request to add the note to the database
       const response = await fetch(
-        "https://noteit-api.onrender.com/notes/" + id,
+        "https://noteit-api-xy18.onrender.com/notes/" + id,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

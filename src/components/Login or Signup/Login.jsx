@@ -46,7 +46,7 @@ function Login({ setLocation }) {
 
     if (!loginInput) return;
 
-    const loginLink = `https://noteit-api.onrender.com/login`;
+    const loginLink = `https://noteit-api-xy18.onrender.com/login`;
 
     await axios
       .post(loginLink, loginInput)

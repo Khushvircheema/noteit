@@ -62,7 +62,7 @@ function Register({ setLocation }) {
       return;
     }
 
-    const registerLink = "https://noteit-api.onrender.com/register";
+    const registerLink = "https://noteit-api-xy18.onrender.com/register";
 
     await axios
       .post(registerLink, inputs)
