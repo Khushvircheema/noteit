@@ -44,7 +44,7 @@ function Note({ object, id, title, content, setIsNoteDeleted, baseURL }) {
     };
     try {
       const response = await axios.patch(
-        `${baseURL}/notes/ ${userId}/${noteId}`,
+        `${baseURL}notes/ ${userId}/${noteId}`,
         updatedNoteData
       );
       console.log(response.data);
