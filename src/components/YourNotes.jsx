@@ -15,7 +15,7 @@ function YourNotes({ baseURL }) {
 
   // run evertime a new note is added
   useEffect(() => {
-    if (isNewNoteAdded && isNoteDeleted) {
+    if (isNewNoteAdded || isNoteDeleted) {
       try {
         async function fetchdata() {
           await axios.get(link).then((res) => {
