@@ -15,13 +15,16 @@ function Note({ object, id, title, content, setIsNoteDeleted, baseURL }) {
     async function deleteNote() {
       try {
         // Send a DELETE request to the server to delete the note
-        await axios.delete(link).then((res) => console.log(res.data));
+        const response = await axios.delete(link);
+        const data = response.data;
+        console.log(data);
       } catch (error) {
         console.log(error.message);
+      } finally {
+        setIsNoteDeleted(true);
       }
     }
     deleteNote();
-    setIsNoteDeleted(true);
   }
 
   async function handleInputChange(event) {
