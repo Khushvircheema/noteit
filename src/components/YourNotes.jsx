@@ -16,33 +16,35 @@ function YourNotes({ baseURL }) {
   // run evertime a new note is added
   useEffect(() => {
     if (isNewNoteAdded || isNoteDeleted) {
-      try {
-        async function fetchdata() {
+      async function fetchdata() {
+        try {
           await axios.get(link).then((res) => {
             setNote(res.data);
             console.log(res.data);
           });
+        } catch (error) {
+          console.log(error.message);
         }
-        fetchdata();
-        setIsNoteDeleted(false);
-        setIsNewNoteAdded(false);
-      } catch (error) {
-        console.log(error.message);
       }
+      fetchdata();
+      setIsNoteDeleted(false);
+      setIsNewNoteAdded(false);
     }
   }, [link, isNewNoteAdded, isNoteDeleted]);
 
   // Run when Component Mounts first time
   useEffect(() => {
-    try {
-      async function fetchdata() {
+    async function fetchdata() {
+      try {
         await axios.get(link).then((res) => {
           setNote(res.data);
           console.log(res.data);
         });
+      } catch (error) {
+        console.log(error);
       }
-      fetchdata();
-    } catch (error) {}
+    }
+    fetchdata();
   }, [link]);
   return (
     <div>
