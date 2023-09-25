@@ -16,6 +16,25 @@ function YourNotes({ baseURL }) {
   // run evertime a new note is added
   useEffect(() => {
     if (isNewNoteAdded && isNoteDeleted) {
+      try {
+        async function fetchdata() {
+          await axios.get(link).then((res) => {
+            setNote(res.data);
+            console.log(res.data);
+          });
+        }
+        fetchdata();
+        setIsNoteDeleted(false);
+        setIsNewNoteAdded(false);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+  }, [link, isNewNoteAdded, isNoteDeleted]);
+
+  // Run when Component Mounts first time
+  useEffect(() => {
+    try {
       async function fetchdata() {
         await axios.get(link).then((res) => {
           setNote(res.data);
@@ -23,20 +42,7 @@ function YourNotes({ baseURL }) {
         });
       }
       fetchdata();
-      setIsNoteDeleted(false);
-      setIsNewNoteAdded(false);
-    }
-  }, [link, isNewNoteAdded, isNoteDeleted]);
-
-  // Run when Component Mounts first time
-  useEffect(() => {
-    async function fetchdata() {
-      await axios.get(link).then((res) => {
-        setNote(res.data);
-        console.log(res.data);
-      });
-    }
-    fetchdata();
+    } catch (error) {}
   }, [link]);
   return (
     <div>
