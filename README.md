@@ -1,5 +1,5 @@
 # Frontend Readme for noteit app
-Note IT
+Note It
 
 ## Description
 
@@ -12,3 +12,8 @@ You can create update and delete notes.
 2. React Router
 3. Material-UI (or any other UI library you used)
 4. Axios (for making API requests)
+5. HTML5
+6. JavaScript
+7. CSS
+
+## [Note It](https://noteit-bkia.onrender.com/)
