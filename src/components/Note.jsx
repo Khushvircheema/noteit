@@ -48,9 +48,10 @@ function Note({ object, id, title, content, setIsNoteDeleted, baseURL }) {
         updatedNoteData
       );
       console.log(response.data);
-      setIsEditing(false);
     } catch (error) {
       console.log(error.message);
+    } finally {
+      setIsEditing(false);
     }
   }
 
