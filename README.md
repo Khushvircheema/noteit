@@ -1,5 +1,5 @@
-# Frontend Readme for noteit app
-Note It
+# Frontend Readme for Note It App
+### [Note It](https://noteit-bkia.onrender.com/)
 
 ## Description
 
@@ -16,4 +16,4 @@ You can create update and delete notes.
 6. JavaScript
 7. CSS
 
-## [Note It](https://noteit-bkia.onrender.com/)
+
